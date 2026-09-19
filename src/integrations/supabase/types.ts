@@ -14,7 +14,91 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      files: {
+        Row: {
+          content: string
+          id: string
+          path: string
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          content?: string
+          id?: string
+          path: string
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          content?: string
+          id?: string
+          path?: string
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "files_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages: {
+        Row: {
+          created_at: string
+          id: string
+          parts: Json
+          role: string
+          workspace_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          parts?: Json
+          role: string
+          workspace_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          parts?: Json
+          role?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      workspaces: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          sandbox_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name?: string
+          sandbox_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          sandbox_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
