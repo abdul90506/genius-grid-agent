@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { Brain, Settings2, Square } from "lucide-react";
+import { Brain, Settings2 } from "lucide-react";
 import {
   Conversation,
   ConversationContent,
