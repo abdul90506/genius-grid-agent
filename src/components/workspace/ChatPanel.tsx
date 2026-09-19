@@ -196,13 +196,11 @@ export function ChatPanel({
             placeholder="Tell the agent what to build..."
           />
           <PromptInputFooter className="justify-end">
-            {busy ? (
-              <Button type="button" size="icon-sm" variant="outline" onClick={() => stop()}>
-                <Square className="size-3.5" />
-              </Button>
-            ) : (
-              <PromptInputSubmit status={status} disabled={!input.trim()} />
-            )}
+            <PromptInputSubmit
+              status={status}
+              onStop={stop}
+              disabled={!busy && !input.trim()}
+            />
           </PromptInputFooter>
         </PromptInput>
       </div>
