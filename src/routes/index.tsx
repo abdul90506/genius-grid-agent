@@ -106,8 +106,8 @@ function Index() {
         </Button>
       </header>
 
-      <ResizablePanelGroup direction="horizontal" className="flex-1">
-        <ResizablePanel defaultSize={18} minSize={12}>
+      <ResizablePanelGroup orientation="horizontal" className="flex-1">
+        <ResizablePanel defaultSize="18" minSize="12">
           <FileExplorer
             files={files}
             activePath={activePath}
@@ -119,19 +119,19 @@ function Index() {
           />
         </ResizablePanel>
         <ResizableHandle />
-        <ResizablePanel defaultSize={50} minSize={25}>
-          <ResizablePanelGroup direction="vertical">
-            <ResizablePanel defaultSize={65} minSize={20}>
+        <ResizablePanel defaultSize="50" minSize="25">
+          <ResizablePanelGroup orientation="vertical">
+            <ResizablePanel defaultSize="65" minSize="20">
               <CodeEditor workspaceId={workspaceId} file={activeFile} onSaved={refresh} />
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel defaultSize={35} minSize={15}>
+            <ResizablePanel defaultSize="35" minSize="15">
               <Terminal workspaceId={workspaceId} onCommandDone={refresh} />
             </ResizablePanel>
           </ResizablePanelGroup>
         </ResizablePanel>
         <ResizableHandle />
-        <ResizablePanel defaultSize={32} minSize={22}>
+        <ResizablePanel defaultSize="32" minSize="22">
           <ChatPanel
             workspaceId={workspaceId}
             settings={settings}
